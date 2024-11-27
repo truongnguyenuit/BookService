@@ -1,0 +1,25 @@
+POST {{host}}/book
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3MzI2OTA5NDgsImV4cCI6MTczMjc3NzM0OCwiZW1haWwiOiJ0cnVvbmczQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiJ9.1cpjEAo-Fk-e75WN8SDUcSX1ESxeOuurtk19uEOAAPjhnYd8UpnbwlcebULEqUPQ
+
+{
+  "title": "Tinh Thần Biến",
+  "author": "Nhĩ căn",
+  "category": "Tiên hiệp"
+}
+
+###
+PUT {{host}}/book/2
+Content-Type: application/json
+
+true
+
+###
+DELETE {{host}}/book/1
+
+###
+GET {{host}}/book
+#Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3MzIzMzUzMDcsImV4cCI6MTczMjQyMTcwNywiZW1haWwiOiJuZ3V5ZW4xM0BnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.hiX8zNOqniPmIUT2vJyhcLAqWgGrEd-FA-QUvcONBFy6MBYnOmHNSfIYibl_AHMB
+###
+GET {{host}}/book/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE3MzI2OTA5NDgsImV4cCI6MTczMjc3NzM0OCwiZW1haWwiOiJ0cnVvbmczQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiJ9.1cpjEAo-Fk-e75WN8SDUcSX1ESxeOuurtk19uEOAAPjhnYd8UpnbwlcebULEqUPQ
