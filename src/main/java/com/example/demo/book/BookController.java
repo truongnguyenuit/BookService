@@ -20,11 +20,13 @@ public class BookController {
     }
 
     @GetMapping()
+    @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     public ResponseEntity<List<Book>> getBooks() throws ApiRequestException {
         return new ResponseEntity<>(bookService.getBooks(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
     public ResponseEntity<Optional<Book>> getBook(@PathVariable Long id) throws ApiRequestException {
         return new ResponseEntity<>(bookService.getBook(id), HttpStatus.OK);
     }
@@ -36,6 +38,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Book> updateBookIsAvailable(
             @PathVariable Long id,
             @RequestBody Boolean isAvailable) throws ApiRequestException {

@@ -25,11 +25,6 @@ public class AppConfig {
 
         http.sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> authorize
-                                .anyRequest().permitAll()
-//                                .requestMatchers("/api/admin/**").hasAnyRole("ADMIN")
-//                                .requestMatchers("/api/**").authenticated()
-                )
                 .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()));
@@ -37,7 +32,6 @@ public class AppConfig {
         return http.build();
     }
 
-    //Config CORS
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration cfg = new CorsConfiguration();
